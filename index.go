@@ -47,8 +47,11 @@ func getTopTen(arr []string) []kv {
 		return slicable[i].Value > slicable[j].Value
 	})
 
-	topTen := slicable[0:10]
-	return topTen
+	if len(slicable) < 10 {
+		return slicable
+	} else {
+		return slicable[0:10]
+	}
 }
 
 func main() {
